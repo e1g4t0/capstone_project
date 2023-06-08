@@ -1,0 +1,116 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}"lang="en">
+<head>
+  <title>Add movies</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+  <div class="container main-content">
+    <h3>Ticket Booking add movie form</h3>
+    <form th:action="@{/movies/add/save}" method="post" th:object="${movie}">
+      <div th:if="${param.error}">
+        <div class="alert alert-danger">
+          Invalid data.
+        </div>
+      </div>
+      <div th:if="${param.success}">
+        <div class="alert alert-info">
+          You have successfully added a movie!
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-6">
+          <input type="text"
+                 id="name"
+                 name="name" class="form-control"
+                 placeholder="Name"
+                 th:field="*{name}"
+                 autofocus="autofocus">
+          <p th:errors = "*{name}" class="text-danger"
+             th:if="${#fields.hasErrors('name')}"></p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="rating" class="col-sm-2 col-form-label">Rating</label>
+        <div class="col-sm-6">
+          <input type="number"
+                 id="rating"
+                 name="rating"
+                 class="form-control"
+                 placeholder="Rating"
+                 th:field="*{rating}"
+                 autofocus="autofocus">
+          <p th:errors = "*{rating}" class="text-danger"
+             th:if="${#fields.hasErrors('rating')}"></p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="release_year" class="col-sm-2 col-form-label">Release year</label>
+        <div class="col-sm-6">
+          <input type="date"
+                 id="release_year"
+                 name="release_year"
+                 class="form-control"
+                 placeholder="Release year"
+                 th:field="*{releaseYear}"
+                 autofocus="autofocus">
+          <p th:errors = "*{releaseYear}" class="text-danger"
+             th:if="${#fields.hasErrors('releaseYear')}"></p>
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <label for="country" class="col-sm-2 col-form-label">Country</label>
+        <div class="col-sm-6">
+          <input type="text"
+                 id="country"
+                 name="country"
+                 class="form-control"
+                 placeholder="Country"
+                 th:field="*{country}"
+                 autofocus="autofocus">
+          <p th:errors = "*{country}" class="text-danger"
+             th:if="${#fields.hasErrors('country')}"></p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="director" class="col-sm-2 col-form-label">Director</label>
+        <div class="col-sm-6">
+          <input type="text"
+                 id="director"
+                 name="director"
+                 class="form-control"
+                 placeholder="Director"
+                 th:field="*{director}"
+                 autofocus="autofocus">
+          <p th:errors = "*{director}" class="text-danger"
+             th:if="${#fields.hasErrors('director')}"></p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="description" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-6">
+          <input type="text"
+                 id="description"
+                 name="description"
+                 class="form-control"
+                 placeholder="Description"
+                 th:field="*{description}"
+                 autofocus="autofocus">
+          <p th:errors = "*{description}" class="text-danger"
+             th:if="${#fields.hasErrors('description')}"></p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-primary">Add movie</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

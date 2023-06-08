@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+<head>
+    <title>Home</title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="jumbotron main-content">
+            <h1>Welcome to Ticket Booking Admin</h1>
+            <p>There you can see the list of all movies and book a ticket</p>
+        </div>
+        <div class="container">
+            <div sec:authorize="hasAuthority('USER')">
+                <h1 class="display-3">Hello, user!</h1>
+            </div>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <h1 class="display-3">This is admin page</h1>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

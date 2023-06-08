@@ -1,0 +1,131 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}"lang="en">
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <div class="container main-content">
+        <h3>Ticket Booking Register Form</h3>
+        <form th:action="@{/register/save}" method="post" th:object="${user}">
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">
+                    Invalid username or password.
+                </div>
+            </div>
+            <div th:if="${param.success}">
+                <div class="alert alert-info">
+                    You have been successfully registered!
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="username"
+                           name="username" class="form-control"
+                           placeholder="Username"
+                           th:field="*{username}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{username}" class="text-danger"
+                       th:if="${#fields.hasErrors('username')}"></p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-6">
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Password"
+                           th:field="*{password}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{password}" class="text-danger"
+                       th:if="${#fields.hasErrors('password')}"></p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="firstname"
+                           name="firstname"
+                           class="form-control"
+                           placeholder="Firstname"
+                           th:field="*{firstname}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{firstname}" class="text-danger"
+                       th:if="${#fields.hasErrors('firstname')}"></p>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="lastname"
+                           name="lastname"
+                           class="form-control"
+                           placeholder="Lastname"
+                           th:field="*{lastname}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{lastname}" class="text-danger"
+                       th:if="${#fields.hasErrors('lastname')}"></p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="birthdate" class="col-sm-2 col-form-label">Birthdate</label>
+                <div class="col-sm-6">
+                    <input type="date"
+                           id="birthdate"
+                           name="birthdate"
+                           class="form-control"
+                           placeholder="Birthdate"
+                           th:field="*{birthDate}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{birthDate}" class="text-danger"
+                       th:if="${#fields.hasErrors('birthDate')}"></p>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="email"
+                           name="email"
+                           class="form-control"
+                           placeholder="Email"
+                           th:field="*{email}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{email}" class="text-danger"
+                       th:if="${#fields.hasErrors('email')}"></p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="telephone" class="col-sm-2 col-form-label">Telephone</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="telephone"
+                           name="telephone"
+                           class="form-control"
+                           placeholder="Telephone"
+                           th:field="*{telephone}"
+                           autofocus="autofocus">
+                    <p th:errors = "*{telephone}" class="text-danger"
+                       th:if="${#fields.hasErrors('telephone')}"></p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
