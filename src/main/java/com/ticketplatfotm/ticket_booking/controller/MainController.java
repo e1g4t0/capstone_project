@@ -104,7 +104,6 @@ public class MainController {
         }
 
         if(result.hasErrors()){
-            System.out.println(result);
             model.addAttribute("user", user);
             return "/register";
         }

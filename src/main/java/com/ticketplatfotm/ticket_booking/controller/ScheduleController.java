@@ -128,7 +128,6 @@ public class ScheduleController {
         ticketEntity.setScheduleId(movieScheduleForHall.getScheduleId());
         model.addAttribute("movieSchedules", movieSchedules);
         model.addAttribute("movieScheduleForHall", movieScheduleForHall);
-        System.out.println(ticketEntity);
         model.addAttribute("ticket", ticketEntity);
         return "booking";
     }
@@ -138,8 +137,6 @@ public class ScheduleController {
                              @Valid @ModelAttribute("movieScheduleForHall") MovieSchedule movieScheduleForHall,
                              BindingResult result,
                              Model model){
-        System.out.println(ticketEntity);
-        System.out.println(movieScheduleForHall);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserEntity userEntity = usersService.findByUsername(auth.getName());
         ticketEntity.setUserId(userEntity.getUserId());
